@@ -192,3 +192,9 @@ It also displays:
 Built using **Python, PyTorch, CNN, and Streamlit**.
 
 If you like this project, ⭐ star the repository on GitHub!
+
+## 🌐 Live Demo
+
+🚀 **Try the application here:**
+
+https://plantdiseasedetection-zr3aznm7rraaaab59bpvbx.streamlit.app/
