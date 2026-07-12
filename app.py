@@ -3,6 +3,7 @@ import torch
 import torch.nn.functional as F
 from torchvision import transforms
 from PIL import Image
+from huggingface_hub import hf_hub_download
 from model import PlantDiseaseCNN
 
 # -------------------------------------------------
@@ -44,17 +45,22 @@ div[data-testid="metric-container"]{
 """, unsafe_allow_html=True)
 
 # -------------------------------------------------
-# LOAD MODEL
+# LOAD MODEL FROM HUGGING FACE
 # -------------------------------------------------
 
 @st.cache_resource
 def load_model():
 
+    model_path = hf_hub_download(
+        repo_id="thoufeeqmohd/plant-disease-cnn-model",
+        filename="plant_disease_model.pth"
+    )
+
     model = PlantDiseaseCNN()
 
     model.load_state_dict(
         torch.load(
-            "plant_disease_model.pth",
+            model_path,
             map_location=torch.device("cpu")
         )
     )
